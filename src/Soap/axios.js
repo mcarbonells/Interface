@@ -8,17 +8,17 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 async function getUserByEmail(email){
   axios_.post(apiUrl, {
-    query: queries.getUserByEmail
+    query: queries.getUserByEmail,
+    variables: { email: email}
   })
   .then((res) => {
-    console.log("Entre")
-    console.log(res.data.data.getUserByEmail)
-    return res.data.data.getUserByEmail
+    console.log(res)
+    return res
   })
   .catch((error) => {
-    console.log(" NO Entre")
+    console.log("No conecta con UnracoonApi")
     console.error(error)
-    return "No se encontro usuario"
+    return "No conecta con UnracoonApi"
   });
 }
 

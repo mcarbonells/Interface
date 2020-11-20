@@ -3,7 +3,7 @@ module.exports = {
     queries: {
         getUserByEmail: 
         ` query{
-            getUserByEmail(email: "elusuariodeprueba2@unal.edu.co"){
+            getUserByEmail(email: $email){
               id
               email
               name
