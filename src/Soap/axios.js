@@ -2,6 +2,8 @@ const axios_ = require('axios');
 const apiUrl = require('./apiGraph').apiUrl;
 const queries = require('./apiGraph').queries;
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 axios_.post(apiUrl, {
     query: queries.getUserByEmail
 })
