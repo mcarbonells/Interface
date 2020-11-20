@@ -1,7 +1,8 @@
 const axios = require('./axios');
-
-async function getUserByEmail (email) {
-    let res = await axios.getUserByEmail(email);
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+async function getUserByEmail (args) {
+    let email = args;
+    let response = await axios.getUserByEmail(email);
 
     if(response.status == 200){
         return response.data.data.getUserByEmail;

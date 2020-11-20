@@ -1,5 +1,4 @@
 module.exports = {
-  
     //Data service of 1a
     ss_2a_url: process.env.SS_2A_URL || "34.200.179.125",
     ss_2a_port: process.env.SS_2A_PORT || "3030",

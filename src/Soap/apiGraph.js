@@ -1,9 +1,9 @@
 module.exports = {
-    apiUrl: 'https://3.90.88.218/graphql',
+    apiUrl: 'https://3.90.88.218:5000/graphql',
     queries: {
         getUserByEmail: 
         ` query{
-            getUserByEmail(email: $email){
+            getUserByEmail(email: string){
               id
               email
               name

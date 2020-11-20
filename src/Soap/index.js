@@ -1,7 +1,7 @@
 const soap = require(`soap`);
 const express = require(`express`);
 const dataServer = require('../server');
-
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 const fs = require('fs');
 

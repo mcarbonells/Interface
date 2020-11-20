@@ -8,8 +8,8 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 async function getUserByEmail(email){
   axios_.post(apiUrl, {
-    query: queries.getUserByEmail,
-    variables: { email: email}
+    query: queries.getUserByEmail(email),
+    //variables: { email: email}
   })
   .then((res) => {
     console.log(res)

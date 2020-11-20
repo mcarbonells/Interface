@@ -12,18 +12,16 @@
 
     <s:schema elementFormDefault="qualified" targetNamespace="http://www.examples.com/wsdl/MyService.wsdl">
 
-      <s:element name="GetByUserEmailRequest">
-        <s:complexType>
-          <s:sequence>
-          <s:element name = "email" type = "xsd:string"/>
+      <s:element name="ImagesByTagRequest">
+        <s:sequence>
+            <s:element name = "email" type = "xsd:string"/>
           </s:sequence>
-        </s:complexType>
       </s:element>
 
-      <s:element name="GetByUserEmailResponse">
+      <s:element name="ImagesByTagResponse">
         <s:complexType>
           <s:sequence>
-            <s:element maxOccurs="unbounded" name="user"/>
+            <s:element maxOccurs="unbounded" name="user" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -34,30 +32,33 @@
 
 
   <!-- MESSAGES: defines the data being exchanged between the service and client -->
-  <wsdl:message name="GetByUserEmailIn">
-    <wsdl:part name="parameters" element="tns:GetByUserEmailRequest"/>
+
+  <wsdl:message name="ImagesByTagSoapIn">
+    <wsdl:part name="parameters" element="tns:ImagesByTagRequest"/>
   </wsdl:message>
-  <wsdl:message name="GetByUserEmailOut">
-    <wsdl:part name="parameters" element="tns:GetByUserEmailResponse"/>
+  <wsdl:message name="ImagesByTagSoapOut">
+    <wsdl:part name="parameters" element="tns:ImagesByTagResponse"/>
   </wsdl:message>
-  
   <!-- PORT TYPES: defines the complete communication operation (one way/round trip) -->
   <wsdl:portType name="ss_1b_Port">
     <!-- The operation name must be the same as the one specified in the service object -->
+
     <wsdl:operation name="GetByUserEmail">
-      <wsdl:input message="tns:GetByUserEmailIn"/>
-      <wsdl:output message="tns:GetByUserEmailOut"/>
+      <wsdl:input message="tns:ImagesByTagSoapIn"/>
+      <wsdl:output message="tns:ImagesByTagSoapOut"/>
     </wsdl:operation>
   </wsdl:portType>
 
 
   <!-- BINDING: provides details on how a portType operation will actually be transmitted -->
-  <wsdl:binding name="ss_1b_Binding" type="tns:ss_1b_Port">
+  <wsdl:binding name="ss_2b_Binding" type="tns:ss_1b_Port">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
     
-    <wsdl:operation name="GetByUserEmail">
-      <soap:operation soapAction="GetByUserEmail" style="document"/>
 
+    <wsdl:operation name="GetByUserEmail">
+
+      <soap:operation soapAction="GetByUserEmail" style="document"/>
+    
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -70,7 +71,7 @@
   </wsdl:binding>
   <!-- SERVICE:  -->
   <wsdl:service name="ss_1b">
-    <wsdl:port name="funtions" binding="tns:ss_1b_Binding">
+    <wsdl:port name="funtions" binding="tns:ss_2b_Binding">
       <soap:address location="http://localhost:6060/ss_1b"/>
     </wsdl:port>
   </wsdl:service>

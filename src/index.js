@@ -6,7 +6,7 @@ const dataServer = require('./server');
 
 const soapServer = require(`./Soap/index`);
 const ss_1b = require('./Soap/server');
-
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 /*restServer.listen(dataServer.rest_server_port, () => {
     console.log(`REST corriendo en http://localhost:${dataServer.rest_server_port} `)
