@@ -1,10 +1,11 @@
-const operations = require(`./operations`); 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+const axios = require(`./axios`); 
+
+
 
 let myService = {
     ss_1b: {
         funtions: {
-            GetByUserEmail: operations.getUserByEmail
+            GetByUserEmail: axios.getUserByEmail
         }
     }
 };
