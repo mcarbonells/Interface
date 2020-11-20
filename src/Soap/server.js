@@ -1,10 +1,10 @@
-const operations = require(`./operations`); 
+const axios = require(`./axios`); 
 
 
 let myService = {
     ss_1b: {
         funtions: {
-            GetByUserEmail: operations.getUserByEmail
+            GetByUserEmail: axios.getUserByEmail
         }
     }
 };

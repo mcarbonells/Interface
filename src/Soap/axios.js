@@ -15,8 +15,15 @@ async function getUserByEmail(email){
   }`
   })
   .then((res) => {
-    console.log(res.data)
-    return res
+    if(res.data.data.getUserByEmail != null && res.status == 200){
+      console.log("axios")
+      console.log(res.data.data.getUserByEmail)
+      return res.data.data.getUserByEmail;
+  }
+  else{
+    console.log("Usuario no encontrado");
+      return 
+  }
   })
   .catch((error) => {
     console.log("No conecta con UnracoonApi")
@@ -24,7 +31,7 @@ async function getUserByEmail(email){
     return "No conecta con UnracoonApi"
   });
 }
-getUserByEmail("elusuariodeprueba2@unal.edu.co");
+
 module.exports = {
   getUserByEmail
 }
