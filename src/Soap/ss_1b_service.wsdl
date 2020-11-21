@@ -21,7 +21,7 @@
       <s:element name="ImagesByTagResponse">
         <s:complexType>
           <s:sequence>
-            <s:element maxOccurs="unbounded" name="user" />
+            <s:element maxOccurs="unbounded" name="users" />
           </s:sequence>
         </s:complexType>
       </s:element>
