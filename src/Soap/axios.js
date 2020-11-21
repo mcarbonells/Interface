@@ -1,9 +1,12 @@
-const axios_ = require('axios');
-const apiUrl = 'https://3.90.88.218:5000/graphql';
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+const axios= require('axios');
+const apiUrl = 'http://localhost:5000/graphql';
 
-async function getUserByEmail(email){
-  axios_.post(apiUrl, {
+const dotenv = require ('dotenv') ;
+
+dotenv.config();
+
+ getUserByEmail = async (email) => {
+  return axios.post(apiUrl, {
     query: ` query{
       getUserByEmail(email: "${email}"){
         id
@@ -16,21 +19,22 @@ async function getUserByEmail(email){
   })
   .then((res) => {
     if(res.data.data.getUserByEmail != null && res.status == 200){
-      console.log("axios")
-      console.log(res.data.data.getUserByEmail)
+      console.log("axios");
+      console.log(res.data.data.getUserByEmail);
       return res.data.data.getUserByEmail;
   }
   else{
     console.log("Usuario no encontrado");
-      return 
+      return "Usuario no encontrado";
   }
   })
   .catch((error) => {
     console.log("No conecta con UnracoonApi")
     console.error(error)
-    return "No conecta con UnracoonApi"
+    throw "No conecta con UnracoonApi"
   });
 }
+console.log(getUserByEmail("elusuariodeprueba2@unal.edu.co"));
 
 module.exports = {
   getUserByEmail
