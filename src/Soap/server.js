@@ -1,5 +1,6 @@
 const axios = require(`./axios`); 
 
+
 let myService = {
     ss_1b: {
         funtions: {
@@ -7,5 +8,6 @@ let myService = {
         }
     }
 };
+
 
 module.exports = myService
