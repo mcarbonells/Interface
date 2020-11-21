@@ -1,9 +1,9 @@
-const axios_ = require('axios');
+const axios= require('axios');
 const apiUrl = 'https://3.90.88.218:5000/graphql';
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-
 async function getUserByEmail(email){
-  return await axios_.post(apiUrl, {
+  return await axios.post(apiUrl, {
+
     query: ` query{
       getUserByEmail(email: ${email}){
         id
@@ -29,16 +29,15 @@ async function getUserByEmail(email){
   }
   else{
     console.log("Usuario no encontrado");
-      return 
+      return "Usuario no encontrado";
   }
   })
   .catch((error) => {
     console.log("No conecta con UnracoonApi")
     console.error(error)
-    return "No conecta con UnracoonApi"
+    throw "No conecta con UnracoonApi"
   });
 }
-
 /*console.log("el retorno");
 console.log(getUserByEmail("elusuariodeprueba2@unal.edu.co"));*/
 module.exports = {
