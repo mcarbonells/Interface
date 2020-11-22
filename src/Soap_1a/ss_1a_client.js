@@ -5,7 +5,7 @@ const soap = require('soap');
 const serverData = require('../server');
 
 let url = `http://${serverData.ss_1a_url}:${serverData.ss_1a_port}/${serverData.ss_1a_action}?wsdl`;
-let path = 'ss_2a.wsdl';
+let path = 'ss_1a.wsdl';
 
 //Consumiendo funcion ejemplo Soap
 async function getUser1a(username) {
