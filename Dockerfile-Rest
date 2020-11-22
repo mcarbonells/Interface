@@ -1,0 +1,12 @@
+FROM node:12.16.2
+
+WORKDIR /ss-interface-rest
+
+COPY package.json /ss-interface-rest
+RUN npm install
+
+COPY . /ss-interface-rest
+
+EXPOSE  9090
+
+CMD [ "node", "./src/Rest/index.js"]
