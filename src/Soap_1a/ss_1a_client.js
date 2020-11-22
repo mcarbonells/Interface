@@ -9,28 +9,24 @@ let path = 'ss_1a.wsdl';
 
 //Consumiendo funcion ejemplo Soap
 async function getUser1a(username) {
-  //Definiendo parametros
-
+  let args = {"email": username}
   const client = await soap.createClientAsync('src/Soap_1a/ss_1a.wsdl');
-
   let getUser1aSoap = (args) => {
     return new Promise(resolve => {
       client.UserFunction(args, (err, result) => {
           if(err){
+              console.log("ERROR");
               console.log(err);
+          }else{
+            console.log("RESPUESTA");
+            console.log(result.body);
+            resolve(result.body);
           }
-        console.log(result.body);
-        resolve(result.body);
       });
     });
   };
-
-  let result = await getUser1aSoap(username);
-
+  let result = await getUser1aSoap(args);
   return result;
-
 }
 
-
-//Exportando las funcionalidades
-module.exports = { getUser1a };
+module.exports = { getUser1a }

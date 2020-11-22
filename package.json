@@ -4,7 +4,8 @@
   "main": "src/Soap/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-soap": "node ./src/Soap/index.js"
+    "start-soap": "node ./src/Soap/index.js",
+    "dev": "nodemon ./src/Rest/index.js"
   },
   "keywords": [],
   "author": "",
