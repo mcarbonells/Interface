@@ -12,13 +12,13 @@
 
     <s:schema elementFormDefault="qualified" targetNamespace="http://www.examples.com/wsdl/MyService.wsdl">
 
-      <s:element name="ImagesByTagRequest">
+      <s:element name="GetByUserEmailRequest">
         <s:sequence>
             <s:element name = "email" type = "xsd:string"/>
           </s:sequence>
       </s:element>
 
-      <s:element name="ImagesByTagResponse">
+      <s:element name="GetByUserEmailResponse">
         <s:complexType>
           <s:sequence>
             <s:element maxOccurs="unbounded" name="url"/>
@@ -32,18 +32,18 @@
 
 
   <!-- MESSAGES: defines the data being exchanged between the service and client -->
-  <wsdl:message name="ImagesByTagSoapIn">
-    <wsdl:part name="parameters" element="tns:ImagesByTagRequest"/>
+  <wsdl:message name="GetByUserEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetByUserEmailRequest"/>
   </wsdl:message>
-  <wsdl:message name="ImagesByTagSoapOut">
-    <wsdl:part name="parameters" element="tns:ImagesByTagResponse"/>
+  <wsdl:message name="GetByUserEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetByUserEmailResponse"/>
   </wsdl:message>
   <!-- PORT TYPES: defines the complete communication operation (one way/round trip) -->
   <wsdl:portType name="ss_1b_Port">
     <!-- The operation name must be the same as the one specified in the service object -->
     <wsdl:operation name="GetByUserEmail">
-      <wsdl:input message="tns:ImagesByTagSoapIn"/>
-      <wsdl:output message="tns:ImagesByTagSoapOut"/>
+      <wsdl:input message="tns:GetByUserEmailSoapIn"/>
+      <wsdl:output message="tns:GetByUserEmailSoapOut"/>
     </wsdl:operation>
   </wsdl:portType>
 
