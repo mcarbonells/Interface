@@ -26,6 +26,20 @@
         </s:complexType>
       </s:element>
       
+      <s:element name="GetByUserEmailPruebaRequest">
+        <s:sequence>
+            <s:element name = "email" type = "xsd:string"/>
+          </s:sequence>
+      </s:element>
+
+      <s:element name="GetByUserEmailPruebaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="unbounded" name="url"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+
     </s:schema>
 
   </wsdl:types>
@@ -38,6 +52,13 @@
   <wsdl:message name="GetByUserEmailSoapOut">
     <wsdl:part name="parameters" element="tns:GetByUserEmailResponse"/>
   </wsdl:message>
+
+  <wsdl:message name="GetByUserEmailPruebaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetByUserEmailPruebaRequest"/>
+  </wsdl:message>
+  <wsdl:message name="GetByUserEmailPruebaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetByUserEmailPruebaResponse"/>
+  </wsdl:message>
   <!-- PORT TYPES: defines the complete communication operation (one way/round trip) -->
   <wsdl:portType name="ss_1b_Port">
     <!-- The operation name must be the same as the one specified in the service object -->
@@ -45,6 +66,12 @@
       <wsdl:input message="tns:GetByUserEmailSoapIn"/>
       <wsdl:output message="tns:GetByUserEmailSoapOut"/>
     </wsdl:operation>
+
+    <wsdl:operation name="GetByUserEmailPrueba">
+      <wsdl:input message="tns:GetByUserEmailPruebaSoapIn"/>
+      <wsdl:output message="tns:GetByUserEmailPruebaSoapOut"/>
+    </wsdl:operation>
+
   </wsdl:portType>
 
 
@@ -56,6 +83,20 @@
     <wsdl:operation name="GetByUserEmail">
 
       <soap:operation soapAction="GetByUserEmail" style="document"/>
+    
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+
+    </wsdl:operation>
+
+    <wsdl:operation name="GetByUserEmailPrueba">
+
+      <soap:operation soapAction="GetByUserEmailPrueba" style="document"/>
     
       <wsdl:input>
         <soap:body use="literal"/>
