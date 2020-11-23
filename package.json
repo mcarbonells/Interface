@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-soap": "node ./src/Soap/index.js",
-    "dev": "nodemon ./src/Rest/index.js"
+    "dev_rest": "nodemon ./src/Rest/index.js",
+    "dev_soap": "nodemon ./src/Soap/index.js"
   },
   "keywords": [],
   "author": "",

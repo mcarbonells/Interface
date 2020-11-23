@@ -2,10 +2,11 @@ const axios= require('axios');
 const apiUrl = 'https://3.90.88.218/graphql';
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 async function getUserByEmail(email){
+  console.log('Axios:');
+  console.log(email.email);
   return await axios.post(apiUrl, {
-
     query: ` query{
-      getUserByEmail(email: ${email}){
+      getUserByEmail(email: "${email.email}"){
         id
         email
         name
