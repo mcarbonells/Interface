@@ -70,7 +70,7 @@
   <!-- SERVICE:  -->
   <wsdl:service name="ss_1b">
     <wsdl:port name="funtions" binding="tns:ss_2b_Binding">
-      <soap:address location="http://localhost:6060/ss_1b"/>
+      <soap:address location="http://3.90.88.218:6060/ss_1b"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
