@@ -1,5 +1,5 @@
 const axios= require('axios');
-const apiUrl = 'https://3.90.88.218/graphql';
+const apiUrl = 'https://3.236.236.86:30000/graphql';
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 async function getUserByEmail(email){
   console.log('Axios:');
